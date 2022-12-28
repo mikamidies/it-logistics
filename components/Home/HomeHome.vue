@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <img src="@/assets/img/logo/figure.svg" alt="" class="home__back" />
     <div class="container">
       <h1 class="title">
         We are trucking industry <span class="blue"> experts </span>
@@ -12,7 +13,6 @@
     <div class="bottom">
       <div class="row">
         <div class="col-lg-6 col-xs-12 left">
-          <!-- <img src="@/assets/img/home.svg" alt="" class="pic" /> -->
           <video
             autoplay
             loop
@@ -72,9 +72,6 @@ export default {
   max-width: 618px;
   margin: 0 auto;
   margin-bottom: 58px;
-}
-.blue {
-  color: var(--blue);
 }
 .left {
   overflow: hidden;
@@ -162,5 +159,11 @@ video {
 }
 .btn:hover::after {
   width: 100%;
+}
+.home__back {
+  position: absolute;
+  right: 0;
+  top: 0;
+  pointer-events: none;
 }
 </style>
