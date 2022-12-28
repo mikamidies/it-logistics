@@ -1,5 +1,5 @@
 <template>
-  <div class="banner__wrapper">
+  <div class="banner__wrapper" data-aos="fade-up">
     <div class="container">
       <div class="banner__wrap">
         <div class="banner__lefr">

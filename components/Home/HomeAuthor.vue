@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-aos="fade-up">
     <div class="container">
       <div class="auth__wrap">
         <div class="row">

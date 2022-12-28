@@ -1,5 +1,5 @@
 <template>
-  <div class="nav__wrap">
+  <div class="nav__wrap" id="navbar">
     <div class="container">
       <div class="nav__left">
         <div class="nav__img">
@@ -10,13 +10,13 @@
         <div class="nav__links">
           <ul>
             <li>
-              <a href="#" class="nav__link">About us</a>
+              <a href="#about" class="nav__link">About us</a>
             </li>
             <li>
-              <a href="#" class="nav__link">Services</a>
+              <a href="#services" class="nav__link">Services</a>
             </li>
             <li>
-              <a href="#" class="nav__link">Recruiting</a>
+              <a href="#recruiting" class="nav__link">Recruiting</a>
             </li>
             <li>
               <a href="#" class="nav__link">Contacts</a>
@@ -40,6 +40,18 @@
 <script>
 export default {
   name: 'DesktopNavbar',
+
+  mounted() {
+    function scrollHeader() {
+      const navbar = document.getElementById('navbar')
+      if (this.scrollY >= 50) {
+        navbar.classList.add('scroll-header')
+      } else {
+        navbar.classList.remove('scroll-header')
+      }
+    }
+    window.addEventListener('scroll', scrollHeader)
+  },
 }
 </script>
 
@@ -50,8 +62,13 @@ export default {
   top: 0;
   left: 0;
   z-index: 999;
-  background: white;
+  background: transparent;
   padding: 21px 0;
+  transition: 0.2s;
+}
+.nav__wrap.scroll-header {
+  background: white;
+  box-shadow: 0px 4px 84px rgba(0, 0, 0, 0.08);
 }
 .nav__wrap .container {
   display: flex;

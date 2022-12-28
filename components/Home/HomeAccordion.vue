@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-aos="fade-up">
     <div class="container">
       <div class="acc__wrapper">
         <Accordion>
@@ -166,6 +166,7 @@
         </Accordion>
       </div>
     </div>
+    <div id="recruiting" class="target"></div>
   </div>
 </template>
 

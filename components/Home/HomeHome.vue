@@ -1,11 +1,13 @@
 <template>
   <div class="wrap">
-    <img src="@/assets/img/logo/figure.svg" alt="" class="home__back" />
+    <div class="illusion">
+      <img src="@/assets/img/logo/figure.svg" alt="" class="home__back" />
+    </div>
     <div class="container">
       <h1 class="title">
         We are trucking industry <span class="blue"> experts </span>
       </h1>
-      <p class="sub">
+      <p class="sub" id="about">
         Outsource your dispatching, payroll, safety to us, we will do it better
         than anyone else!
       </p>
@@ -41,6 +43,7 @@
         </div>
       </div>
     </div>
+    <div id="services" class="targer"></div>
   </div>
 </template>
 
@@ -134,6 +137,9 @@ video {
   border: 2px solid var(--blue);
   overflow: hidden;
 }
+.btn:focus {
+  box-shadow: none;
+}
 .btn p {
   font-weight: 700;
   font-size: 20px;
@@ -165,5 +171,14 @@ video {
   right: 0;
   top: 0;
   pointer-events: none;
+  animation: rotate 300s infinite linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 </style>
