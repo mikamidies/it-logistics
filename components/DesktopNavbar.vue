@@ -19,7 +19,7 @@
               <a href="#recruiting" class="nav__link">Recruiting</a>
             </li>
             <li>
-              <a href="#" class="nav__link">Contacts</a>
+              <a href="#contacts" class="nav__link">Contacts</a>
             </li>
           </ul>
         </div>
@@ -31,7 +31,9 @@
             <a href="#" class="next__lang">Eng</a>
           </div>
         </div>
-        <button class="nav__btn"><p>Contact with us</p></button>
+        <button class="nav__btn" onclick="location.href='#contacts'">
+          <p>Contact with us</p>
+        </button>
       </div>
     </div>
   </div>

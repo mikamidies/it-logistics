@@ -20,6 +20,7 @@
                     type="text"
                     placeholder="Your name"
                     class="form__input"
+                    required
                   />
                   <textarea
                     class="form__textarea"
@@ -33,9 +34,10 @@
                     class="form__input"
                   />
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Phone number"
                     class="form__input"
+                    required
                   />
                   <button class="banner__btn"><p>Join us</p></button>
                 </div>
@@ -94,12 +96,15 @@ export default {
   line-height: 17px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #777c84;
   padding: 21px 24px;
   background: #fafafa;
   border: 1px solid #c9c9c9;
   border-radius: 12px;
   width: 100%;
+}
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: #777c84;
 }
 .form__textarea {
   height: -webkit-fill-available;

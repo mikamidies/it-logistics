@@ -164,9 +164,9 @@
             </template>
           </AccordionItem>
         </Accordion>
+        <div id="recruiting" class="target"></div>
       </div>
     </div>
-    <div id="recruiting" class="target"></div>
   </div>
 </template>
 

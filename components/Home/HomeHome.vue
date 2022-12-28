@@ -39,7 +39,9 @@
               </p>
             </div>
           </div>
-          <button class="btn"><p>Connect with us</p></button>
+          <button onclick="location.href='#contacts'" class="btn">
+            <p>Connect with us</p>
+          </button>
         </div>
       </div>
     </div>

@@ -17,7 +17,9 @@
           </div>
         </div>
         <div class="banner__right">
-          <button class="banner__btn"><p>Join us</p></button>
+          <button onclick="location.href='#contacts'" class="banner__btn long">
+            <p>Join us</p>
+          </button>
         </div>
       </div>
     </div>
@@ -94,10 +96,12 @@ export default {
   color: white;
   background: var(--blue);
   border-radius: 12px;
-  padding: 17px 86px;
   position: relative;
   overflow: hidden;
   border: 2px solid var(--blue);
+}
+.banner__btn.long {
+  padding: 17px 86px;
 }
 .banner__btn::after {
   content: '';

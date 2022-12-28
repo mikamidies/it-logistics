@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+    <div id="contacts" class="target"></div>
   </div>
 </template>
 
