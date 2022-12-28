@@ -1,0 +1,67 @@
+<template>
+  <div>
+    <div class="container">
+      <div class="auth__wrap">
+        <div class="row">
+          <div class="col-2">
+            <img src="@/assets/img/conte.jpg" alt="" class="auth__img" />
+          </div>
+          <div class="col-10">
+            <h4 class="auth__name">Saipov Jamshid Akbarovich</h4>
+            <p class="auth__status">Founder & CEO of IT LOGISTIC – GLOBAL</p>
+            <p class="auth__word">
+              “We invest a lot in technology, constantly improve our process and
+              help our client more to be more efficient”
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeAuthor',
+}
+</script>
+
+<style>
+.auth__wrap {
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 32px;
+  margin-top: 24px;
+}
+.auth__wrap .row {
+  align-items: center;
+}
+.auth__img {
+  border-radius: 24px;
+  width: 100%;
+  height: 221px;
+  object-fit: cover;
+}
+.auth__name {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  font-family: var(--decor-bold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.auth__status {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #777c84;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+.auth__word {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px;
+  max-width: 80%;
+}
+</style>
