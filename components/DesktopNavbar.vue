@@ -45,6 +45,11 @@ export default {
 
 <style scoped>
 .nav__wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
   background: white;
   padding: 21px 0;
 }

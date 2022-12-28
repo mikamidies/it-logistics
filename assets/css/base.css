@@ -1,6 +1,35 @@
+@font-face {
+  font-family: 'Halvar';
+  src: url('@/assets/fonts/HalvarBreit-Rg.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Halvar-medium';
+  src: url('@/assets/fonts/HalvarBreit-Md.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Halvar-semibold';
+  src: url('@/assets/fonts/HalvarBreit-Bd.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Halvar-Bold';
+  src: url('@/assets/fonts/HalvarBreit-Bd.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Halvar-extra';
+  src: url('@/assets/fonts/HalvarBreit-Blk.woff2') format('woff2');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
   --black: #0e141d;
   --blue: #3c4bdc;
+
+  --decor: 'Halvar';
+  --decor-medium: 'Halvar-medium';
+  --decor-semi: 'Halvar-semibold';
+  --decor-bold: 'Halvar-Bold';
+  --decor-extra: 'Halvar-extra';
 }
 
 ::-webkit-scrollbar {
@@ -9,7 +38,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--green);
+  background: var(--black);
 }
 
 *:where(
