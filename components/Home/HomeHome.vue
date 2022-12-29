@@ -58,7 +58,6 @@ export default {
 <style scoped>
 .wrap {
   padding: 180px 0 120px 0;
-  overflow-x: hidden;
 }
 .title {
   font-weight: 900;
@@ -181,6 +180,74 @@ video {
   }
   to {
     transform: rotate(-360deg);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrap {
+    padding-top: 144px;
+    padding-bottom: 77px;
+  }
+  video {
+    position: static;
+    height: 210px;
+    margin-left: -16px;
+    margin-bottom: 20px;
+  }
+  .left {
+    padding: 0;
+    overflow: visible;
+  }
+  .title {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
+  .sub {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .right {
+    padding: 0;
+  }
+  .bottom {
+    height: 100%;
+    padding: 0 16px;
+  }
+  .bottom .row {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .sub__title {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 26px;
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+  .sub__items {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .item__num {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .item__txt {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+  .illusion {
+    display: none;
   }
 }
 </style>

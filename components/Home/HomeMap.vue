@@ -115,4 +115,40 @@ export default {
   color: var(--blue);
   text-decoration: none;
 }
+@media screen and (max-width: 1024px) {
+  .map__wrap {
+    padding-top: 40px;
+  }
+  .map iframe {
+    height: 221px !important;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+  .map__content {
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .map__sup {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  .map__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+  .map__items {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .map__item:last-child {
+    grid-column: initial;
+  }
+  .item__txt {
+    max-width: 100%;
+  }
+}
 </style>

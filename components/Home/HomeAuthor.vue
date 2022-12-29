@@ -3,10 +3,10 @@
     <div class="container">
       <div class="auth__wrap">
         <div class="row">
-          <div class="col-2">
+          <div class="col-lg-2 col-xs-12">
             <img src="@/assets/img/conte.jpg" alt="" class="auth__img" />
           </div>
-          <div class="col-10">
+          <div class="col-lg-10 col-xs-12">
             <h4 class="auth__name">Saipov Jamshid Akbarovich</h4>
             <p class="auth__status">Founder & CEO of IT LOGISTIC – GLOBAL</p>
             <p class="auth__word">
@@ -63,5 +63,32 @@ export default {
   font-size: 32px;
   line-height: 42px;
   max-width: 80%;
+}
+@media screen and (max-width: 1024px) {
+  .auth__wrap {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .auth__img {
+    margin-bottom: 16px;
+  }
+  .auth__name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 12px;
+  }
+  .auth__status {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+  }
+  .auth__word {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+  }
 }
 </style>

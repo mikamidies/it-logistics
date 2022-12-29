@@ -252,4 +252,37 @@ export default {
 .content__wrap p:last-child {
   margin-bottom: 0;
 }
+@media screen and (max-width: 1024px) {
+  .acc__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .accordion {
+    padding: 24px 16px !important;
+    border-radius: 20px !important;
+  }
+  .top__title {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .plus {
+    width: 33px;
+    height: 33px;
+    padding: 0;
+  }
+  .plus svg {
+    width: 16px;
+  }
+  .content__wrap p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+  }
+  .acc__wrap {
+    padding: 24px 0;
+  }
+}
 </style>

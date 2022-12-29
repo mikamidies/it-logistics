@@ -1,6 +1,7 @@
 <template>
   <div>
     <DesktopNavbar />
+    <MobileHeader />
     <nuxt />
     <DesktopFooter />
   </div>
@@ -9,6 +10,7 @@
 <script>
 import DesktopNavbar from '@/components/DesktopNavbar.vue'
 import DesktopFooter from '~/components/DesktopFooter.vue'
+import MobileHeader from '~/components/MobileHeader.vue'
 
 export default {
   name: 'DefaultLayout',
@@ -16,6 +18,7 @@ export default {
   components: {
     DesktopNavbar,
     DesktopFooter,
+    MobileHeader,
   },
 }
 </script>

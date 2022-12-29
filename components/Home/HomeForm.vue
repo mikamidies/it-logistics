@@ -144,4 +144,30 @@ export default {
 .banner__btn:hover::after {
   width: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .form__wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .form__wrap {
+    padding: 28px 18px;
+    border-radius: 16px;
+  }
+  .form__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+  .form__txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 26px;
+  }
+  .form__flexer {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

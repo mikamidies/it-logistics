@@ -191,4 +191,9 @@ export default {
 .nav__btn:hover::after {
   width: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .nav__wrap {
+    display: none;
+  }
+}
 </style>

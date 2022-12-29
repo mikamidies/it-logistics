@@ -124,4 +124,45 @@ export default {
 .banner__btn:hover::after {
   width: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .banner__wrapper {
+    padding-top: 40px;
+  }
+  .banner__wrap {
+    padding: 28px 16px;
+    flex-direction: column;
+    border-radius: 16px;
+  }
+  .banner__title {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+  .banner__txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .white__num {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .white__txt {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .banner__white {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .banner__right {
+    display: block;
+  }
+  .banner__btn {
+    width: 100%;
+  }
+}
 </style>

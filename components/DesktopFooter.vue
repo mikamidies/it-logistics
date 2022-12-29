@@ -52,4 +52,18 @@ export default {
 .right a {
   display: flex;
 }
+@media screen and (max-width: 1024px) {
+  .footer__wrap {
+    margin-bottom: 16px;
+    padding: 28px 18px;
+    border-radius: 16px;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer__wrap p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
 </style>
