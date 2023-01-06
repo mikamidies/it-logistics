@@ -21,6 +21,9 @@
             <li>
               <a href="#contacts" class="nav__link">Contacts</a>
             </li>
+            <li>
+              <button @click="scrollToBottom()">bottom</button>
+            </li>
           </ul>
         </div>
       </div>
@@ -54,6 +57,12 @@ export default {
     }
     window.addEventListener('scroll', scrollHeader)
   },
+
+  // methods: {
+  //   scrollToBottom() {
+  //     this.$refs('bottom').scrollIntoView({ behavior: 'smooth' })
+  //   },
+  // },
 }
 </script>
 

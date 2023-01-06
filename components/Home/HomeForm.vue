@@ -13,7 +13,7 @@
             </p>
           </div>
           <div class="col-lg-7 col-xs-12">
-            <form action="">
+            <form @submit.prevent="onSubmit">
               <div class="form__flexer">
                 <div class="form__rower">
                   <input
@@ -24,17 +24,20 @@
                     required
                   />
                   <textarea
+                    v-model="message"
                     class="form__textarea"
                     placeholder="Comment"
                   ></textarea>
                 </div>
                 <div class="form__rower">
                   <input
+                    v-model="company"
                     type="text"
                     placeholder="Company name"
                     class="form__input"
                   />
                   <input
+                    v-model="phone_number"
                     type="number"
                     placeholder="Phone number"
                     class="form__input"
@@ -59,15 +62,22 @@ import formApi from '@/api/form.js'
 export default {
   name: 'HomeForm',
 
+  data() {
+    return {
+      name: '',
+      company: '',
+      phone_number: '',
+      message: '',
+    }
+  },
+
   methods: {
     async onSubmit() {
       const formData = {
         name: this.name,
-        // phone_number: this.phone,
-        // email: this.email,
-        // service_id: parseInt(this.service),
-        // message: this.message,
-        // product: this.$route.fullPath,
+        company: this.name,
+        phone_number: this.name,
+        message: this.name,
       }
 
       const res = await formApi.sendApplication(formData)
@@ -79,10 +89,9 @@ export default {
       }
 
       this.name = ''
-      // this.phone = ''
-      // this.email = ''
-      // this.message = ''
-      // this.isLoading = false
+      this.company = ''
+      this.phone_number = ''
+      this.message = ''
     },
   },
 }

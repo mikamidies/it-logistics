@@ -67,6 +67,7 @@ export default {
   background: #ffffff;
   border-radius: 40px;
   padding: 40px;
+  height: 100%;
 }
 .map__sup {
   font-weight: 600;
