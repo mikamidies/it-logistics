@@ -58,6 +58,7 @@ export default {
 <style scoped>
 .wrap {
   padding: 180px 0 120px 0;
+  overflow-x: hidden;
 }
 .title {
   font-weight: 900;
@@ -171,7 +172,7 @@ video {
   position: absolute;
   right: 0;
   top: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
   animation: rotate 300s infinite linear;
 }
 @keyframes rotate {

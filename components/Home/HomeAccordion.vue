@@ -6,7 +6,7 @@
           <h4 class="acc__title">
             What we actually can do for your <span class="blue">business</span>
           </h4>
-          <AccordionItem>
+          <!-- <AccordionItem>
             <template slot="accordion-trigger">
               <div class="acc__wrap">
                 <div class="top">
@@ -162,6 +162,51 @@
                 <p>We handle all the necessary paperwork!</p>
               </div>
             </template>
+          </AccordionItem> -->
+
+          <AccordionItem v-for="item in faq" :key="item.id">
+            <template slot="accordion-trigger">
+              <div class="acc__wrap">
+                <div class="top">
+                  <h3 class="top__title">
+                    {{ item.question.en }}
+                  </h3>
+                </div>
+                <div>
+                  <div class="plus__wrap">
+                    <div class="plus">
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 31L16 1"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M1 16L16 1L31 16"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <template slot="accordion-content">
+              <div class="content__wrap">
+                <p v-html="item.answer.en"></p>
+              </div>
+            </template>
           </AccordionItem>
         </Accordion>
         <div id="recruiting" class="target"></div>
@@ -180,6 +225,13 @@ export default {
   components: {
     Accordion,
     AccordionItem,
+  },
+
+  props: {
+    faq: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>
