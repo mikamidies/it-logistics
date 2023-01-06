@@ -17,6 +17,7 @@
               <div class="form__flexer">
                 <div class="form__rower">
                   <input
+                    v-model="name"
                     type="text"
                     placeholder="Your name"
                     class="form__input"
@@ -39,7 +40,9 @@
                     class="form__input"
                     required
                   />
-                  <button class="banner__btn"><p>Join us</p></button>
+                  <button type="button" class="banner__btn">
+                    <p>Join us</p>
+                  </button>
                 </div>
               </div>
             </form>
@@ -51,8 +54,37 @@
 </template>
 
 <script>
+import formApi from '@/api/form.js'
+
 export default {
   name: 'HomeForm',
+
+  methods: {
+    async onSubmit() {
+      const formData = {
+        name: this.name,
+        // phone_number: this.phone,
+        // email: this.email,
+        // service_id: parseInt(this.service),
+        // message: this.message,
+        // product: this.$route.fullPath,
+      }
+
+      const res = await formApi.sendApplication(formData)
+
+      if (res && res.status === 200) {
+        this.$toast.success('Successfully sent.')
+      } else {
+        this.$toast.error('Error')
+      }
+
+      this.name = ''
+      // this.phone = ''
+      // this.email = ''
+      // this.message = ''
+      // this.isLoading = false
+    },
+  },
 }
 </script>
 
