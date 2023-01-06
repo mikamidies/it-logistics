@@ -4,7 +4,7 @@
     <HomeAccordion :faq="faq" />
     <HomeBanner />
     <HomeAuthor />
-    <HomeMap />
+    <HomeMap :about="about" />
     <HomeForm />
   </div>
 </template>
@@ -18,6 +18,7 @@ import HomeMap from '~/components/Home/HomeMap.vue'
 import HomeForm from '~/components/Home/HomeForm.vue'
 
 import faqApi from '@/api/faq.js'
+import aboutApi from '@/api/about.js'
 
 export default {
   name: 'IndexPage',
@@ -33,9 +34,11 @@ export default {
 
   async asyncData({ $axios }) {
     const faq = await faqApi.getFaq($axios)
+    const about = await aboutApi.getAbout($axios)
 
     return {
       faq,
+      about,
     }
   },
 }
