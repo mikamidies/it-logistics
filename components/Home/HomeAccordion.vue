@@ -46,7 +46,7 @@
             </template>
             <template slot="accordion-content">
               <div class="content__wrap">
-                <p v-html="item.answer.en"></p>
+                <div v-html="item.answer.en"></div>
               </div>
             </template>
           </AccordionItem>
