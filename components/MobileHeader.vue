@@ -8,12 +8,12 @@
           </a>
         </div>
         <div class="mob__right">
-          <div class="nav__lang">
+          <!-- <div class="nav__lang">
             <p class="current__lang">En <i class="bx bx-chevron-down"></i></p>
             <div class="lang__drop">
               <a href="#" class="next__lang">Eng</a>
             </div>
-          </div>
+          </div> -->
           <div class="mob__burger">
             <button
               :class="{ 'toggle-x': isMenuOpen }"

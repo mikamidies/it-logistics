@@ -43,7 +43,7 @@
                     class="form__input"
                     required
                   />
-                  <button type="button" class="banner__btn">
+                  <button type="submit" class="banner__btn">
                     <p>Join us</p>
                   </button>
                 </div>
@@ -68,6 +68,7 @@ export default {
       company: '',
       phone_number: '',
       message: '',
+      page: 'https://plaza.choopon.uz',
     }
   },
 
@@ -75,15 +76,16 @@ export default {
     async onSubmit() {
       const formData = {
         name: this.name,
-        company: this.name,
-        phone_number: this.name,
-        message: this.name,
+        company: this.company,
+        phone_number: this.phone_number,
+        message: this.message,
+        page: this.page,
       }
 
       const res = await formApi.sendApplication(formData)
 
-      if (res && res.status === 200) {
-        this.$toast.success('Successfully sent.')
+      if (res && res.status === 201) {
+        this.$toast.success('Successfully sent')
       } else {
         this.$toast.error('Error')
       }
@@ -136,7 +138,6 @@ export default {
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
   padding: 21px 24px;
   background: #fafafa;
   border: 1px solid #c9c9c9;
@@ -146,6 +147,7 @@ export default {
 .form__input::placeholder,
 .form__textarea::placeholder {
   color: #777c84;
+  text-transform: uppercase;
 }
 .form__textarea {
   height: -webkit-fill-available;
@@ -184,6 +186,14 @@ export default {
 }
 .banner__btn:hover::after {
   width: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 @media screen and (max-width: 1024px) {
   .form__wrapper {

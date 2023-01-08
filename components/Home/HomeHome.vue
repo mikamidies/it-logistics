@@ -172,8 +172,8 @@ video {
   position: absolute;
   right: 0;
   top: 0;
-  /* pointer-events: none; */
-  animation: rotate 300s infinite linear;
+  pointer-events: none;
+  /* animation: rotate 300s infinite linear; */
 }
 @keyframes rotate {
   from {
