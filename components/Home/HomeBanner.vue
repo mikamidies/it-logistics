@@ -12,7 +12,7 @@
             to us, many have grown to be top executives!
           </p>
           <div class="banner__white">
-            <p class="white__num">500+</p>
+            <p class="white__num">250+</p>
             <p class="white__txt">Employees working in our company</p>
           </div>
         </div>

@@ -29,13 +29,13 @@
           </p>
           <div class="sub__items">
             <div class="item">
-              <p class="item__num"><span class="blue"> 500 </span> +</p>
+              <p class="item__num"><span class="blue"> 250 </span> +</p>
               <p class="item__txt">Employees working in our company</p>
             </div>
             <div class="item">
-              <p class="item__num">Since<span class="blue"> 2020 </span></p>
+              <p class="item__num">Since<span class="blue"> 2022 </span></p>
               <p class="item__txt">
-                The company was established on September 01, 2020
+                The company was established
               </p>
             </div>
           </div>
