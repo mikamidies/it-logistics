@@ -21,19 +21,17 @@
             <li>
               <a href="#contacts" class="nav__link">Contacts</a>
             </li>
-            <li>
-              <button @click="scrollToBottom()">bottom</button>
-            </li>
           </ul>
         </div>
       </div>
       <div class="nav__right">
-        <!-- <div class="nav__lang">
-          <p class="current__lang">En <i class="bx bx-chevron-down"></i></p>
+        <div class="nav__lang">
+          <p class="current__lang">{{getLang}} <i class="bx bx-chevron-down"></i></p>
           <div class="lang__drop">
-            <a href="#" class="next__lang">Eng</a>
+            <p @click="changeLang('ru')" class="next__lang">Ru</p>
+            <p @click="changeLang('uz')" class="next__lang">Uz</p>
           </div>
-        </div> -->
+        </div>
         <button class="nav__btn" onclick="location.href='#contacts'">
           <p>Contact with us</p>
         </button>
@@ -43,8 +41,19 @@
 </template>
 
 <script>
+// eslint-disable
+import faqApi from '@/api/faq.js'
+
 export default {
   name: 'DesktopNavbar',
+
+  async asyncData({ $axios }) {
+    const translations = await faqApi.getFaq($axios);
+
+    return {
+      translations,
+    }
+  },
 
   mounted() {
     function scrollHeader() {
@@ -56,13 +65,27 @@ export default {
       }
     }
     window.addEventListener('scroll', scrollHeader)
+
+    console.log(this.faq)
   },
 
-  // methods: {
-  //   scrollToBottom() {
-  //     this.$refs('bottom').scrollIntoView({ behavior: 'smooth' })
-  //   },
-  // },
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
+  },
+  
+  methods: {
+    changeLang(code) {
+      this.$store.dispatch("actionLangRu", code);
+        this.$router.replace({
+          params: {
+            lang: code,
+          },
+        });
+      localStorage.setItem("Lang", code);
+    },
+  },
 }
 </script>
 

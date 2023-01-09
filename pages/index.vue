@@ -41,5 +41,16 @@ export default {
       about,
     }
   },
+
+  async mounted(){
+    if (!this.$route.params.lang) {
+      await this.$router.replace({
+          params: {
+            lang: 'en',
+          },
+        });
+    }
+    this.$store.dispatch("actionLangRu", this.$route.params.lang);
+  }
 }
 </script>
