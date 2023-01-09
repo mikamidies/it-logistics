@@ -9,7 +9,7 @@
           <p class="banner__txt">
             We believe our business would not have been as half succesful with
             our great employees! Thats why our employees are like family members
-            to us, many have grown to be top executives!
+            to us, many have grown to be top executives! Check
           </p>
           <div class="banner__white">
             <p class="white__num">250+</p>
