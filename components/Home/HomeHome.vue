@@ -5,11 +5,22 @@
     </div>
     <div class="container">
       <h1 class="title">
-        {{translations.find(item => item.key == 'title')?.val[getLang] ?? translations.find(item => item.key == 'title')?.val.ru }} 
-        <span class="blue"> {{translations.find(item => item.key == 'blue')?.val[getLang] ?? translations.find(item => item.key == 'blue')?.val.ru }} </span>
+        {{
+          translations.find((item) => item.key == 'title')?.val[getLang] ??
+          translations.find((item) => item.key == 'title')?.val.ru
+        }}
+        <span class="blue">
+          {{
+            translations.find((item) => item.key == 'blue')?.val[getLang] ??
+            translations.find((item) => item.key == 'blue')?.val.ru
+          }}
+        </span>
       </h1>
       <p class="sub" id="about">
-        {{translations.find(item => item.key == 'sub')?.val[getLang] ?? translations.find(item => item.key == 'sub')?.val.ru }}
+        {{
+          translations.find((item) => item.key == 'sub')?.val[getLang] ??
+          translations.find((item) => item.key == 'sub')?.val.ru
+        }}
       </p>
     </div>
     <div class="bottom">
@@ -25,23 +36,54 @@
         </div>
         <div class="col-lg-6 col-xs-12 right">
           <p class="sub__title">
-            {{translations.find(item => item.key == 'stats')?.val[getLang] ?? translations.find(item => item.key == 'stats')?.val.ru }} 
-            <span class="blue">{{translations.find(item => item.key == 'stats-blue')?.val[getLang] ?? translations.find(item => item.key == 'stas-blue')?.val.ru }}</span>
+            {{
+              translations.find((item) => item.key == 'stats')?.val[getLang] ??
+              translations.find((item) => item.key == 'stats')?.val.ru
+            }}
+            <span class="blue">{{
+              translations.find((item) => item.key == 'stats-blue')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'stas-blue')?.val.ru
+            }}</span>
           </p>
           <div class="sub__items">
             <div class="item">
               <p class="item__num"><span class="blue"> 250 </span> +</p>
-              <p class="item__txt">{{translations.find(item => item.key == 'employees')?.val[getLang] ?? translations.find(item => item.key == 'employees')?.val.ru }}</p>
+              <p class="item__txt">
+                {{
+                  translations.find((item) => item.key == 'employees')?.val[
+                    getLang
+                  ] ??
+                  translations.find((item) => item.key == 'employees')?.val.ru
+                }}
+              </p>
             </div>
             <div class="item">
-              <p class="item__num">Since<span class="blue"> 2022 </span></p>
+              <p class="item__num">
+                {{
+                  translations.find((item) => item.key == 'since')?.val[
+                    getLang
+                  ] ?? translations.find((item) => item.key == 'since')?.val.ru
+                }}<span class="blue"> 2022 </span>
+              </p>
               <p class="item__txt">
-                {{translations.find(item => item.key == 'established')?.val[getLang] ?? translations.find(item => item.key == 'established')?.val.ru }}
+                {{
+                  translations.find((item) => item.key == 'established')?.val[
+                    getLang
+                  ] ??
+                  translations.find((item) => item.key == 'established')?.val.ru
+                }}
               </p>
             </div>
           </div>
           <button onclick="location.href='#contacts'" class="btn">
-            <p>{{translations.find(item => item.key == 'connect')?.val[getLang] ?? translations.find(item => item.key == 'connect')?.val.ru }}</p>
+            <p>
+              {{
+                translations.find((item) => item.key == 'connect')?.val[
+                  getLang
+                ] ?? translations.find((item) => item.key == 'connect')?.val.ru
+              }}
+            </p>
           </button>
         </div>
       </div>
@@ -58,7 +100,7 @@ export default {
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
 }
