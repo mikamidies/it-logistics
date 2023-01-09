@@ -4,20 +4,46 @@
       <div class="banner__wrap">
         <div class="banner__left">
           <h4 class="banner__title">
-            <span class="blue">{{translations.find(item => item.key == 'career-blue')?.val[getLang] ?? translations.find(item => item.key == 'career-blue')?.val.ru }}</span>
-            {{translations.find(item => item.key == 'career-title')?.val[getLang] ?? translations.find(item => item.key == 'career-title')?.val.ru }}
+            <span class="blue">{{
+              translations.find((item) => item.key == 'career-blue')?.val[
+                getLang
+              ] ??
+              translations.find((item) => item.key == 'career-blue')?.val.ru
+            }}</span>
+            {{
+              translations.find((item) => item.key == 'career-title')?.val[
+                getLang
+              ] ??
+              translations.find((item) => item.key == 'career-title')?.val.ru
+            }}
           </h4>
           <p class="banner__txt">
-            {{translations.find(item => item.key == 'career-sub')?.val[getLang] ?? translations.find(item => item.key == 'career-sub')?.val.ru }} 
+            {{
+              translations.find((item) => item.key == 'career-sub')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'career-sub')?.val.ru
+            }}
           </p>
           <div class="banner__white">
             <p class="white__num">250+</p>
-            <p class="white__txt">{{translations.find(item => item.key == 'career-white')?.val[getLang] ?? translations.find(item => item.key == 'career-white')?.val.ru }}</p>
+            <p class="white__txt">
+              {{
+                translations.find((item) => item.key == 'career-white')?.val[
+                  getLang
+                ] ??
+                translations.find((item) => item.key == 'career-white')?.val.ru
+              }}
+            </p>
           </div>
         </div>
         <div class="banner__right">
           <button onclick="location.href='#contacts'" class="banner__btn long">
-            <p>{{translations.find(item => item.key == 'join')?.val[getLang] ?? translations.find(item => item.key == 'join')?.val.ru }}</p>
+            <p>
+              {{
+                translations.find((item) => item.key == 'join')?.val[getLang] ??
+                translations.find((item) => item.key == 'join')?.val.ru
+              }}
+            </p>
           </button>
         </div>
       </div>
@@ -33,7 +59,7 @@ export default {
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
 }
@@ -53,18 +79,18 @@ export default {
   display: flex;
   position: relative;
 }
-.banner__wrap::after{
+.banner__wrap::after {
   content: '';
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 40px;
 }
 .banner__left,
-.banner__right{
+.banner__right {
   position: relative;
   z-index: 99;
 }
@@ -154,6 +180,9 @@ export default {
   .banner__wrap {
     padding: 28px 16px;
     flex-direction: column;
+    border-radius: 16px;
+  }
+  .banner__wrap::after {
     border-radius: 16px;
   }
   .banner__title {

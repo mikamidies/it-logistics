@@ -307,6 +307,10 @@ export default {
   color: var(--black);
   text-decoration: none;
 }
+.next__lang,
+.current__lang {
+  text-transform: capitalize;
+}
 @media screen and (max-width: 1024px) {
   .mob__wrap {
     display: block;
