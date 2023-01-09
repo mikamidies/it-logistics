@@ -3,12 +3,32 @@
     <div class="container">
       <div class="footer__wrap">
         <div class="left">
-          <p>{{translations.find(item => item.key == 'footer-txt')?.val[getLang] ?? translations.find(item => item.key == 'footer-txt')?.val.ru }}</p>
-          <p>{{translations.find(item => item.key == 'footer-right')?.val[getLang] ?? translations.find(item => item.key == 'footer-right')?.val.ru }}</p>
+          <p>
+            {{
+              translations.find((item) => item.key == 'footer-txt')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'footer-txt')?.val.ru
+            }}
+          </p>
+          <p>
+            {{
+              translations.find((item) => item.key == 'footer-right')?.val[
+                getLang
+              ] ??
+              translations.find((item) => item.key == 'footer-right')?.val.ru
+            }}
+          </p>
         </div>
         <div class="footer__right">
-          <p class="author">{{translations.find(item => item.key == 'developed-by')?.val[getLang] ?? translations.find(item => item.key == 'developed-by')?.val.ru }}</p>
-          <a href="#">
+          <p class="author">
+            {{
+              translations.find((item) => item.key == 'developed-by')?.val[
+                getLang
+              ] ??
+              translations.find((item) => item.key == 'developed-by')?.val.ru
+            }}
+          </p>
+          <a class="d-flex" target="_blank" href="http://ndc.uz">
             <img src="@/assets/img/logo/ndc.svg" alt="" />
           </a>
         </div>
@@ -21,11 +41,11 @@
 export default {
   name: 'DesktopFooter',
 
-  props:['translations'],
+  props: ['translations'],
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
 }

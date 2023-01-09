@@ -10,30 +10,54 @@
         <div class="nav__links">
           <ul>
             <li>
-              <a href="#about" class="nav__link">{{translations.find(item => item.key == 'about')?.val[getLang] ?? translations.find(item => item.key == 'about')?.val.ru }}</a>
+              <nuxt-link to="#about" class="nav__link">{{
+                translations.find((item) => item.key == 'about')?.val[
+                  getLang
+                ] ?? translations.find((item) => item.key == 'about')?.val.ru
+              }}</nuxt-link>
             </li>
             <li>
-              <a href="#services" class="nav__link">{{translations.find(item => item.key == 'services')?.val[getLang] ?? translations.find(item => item.key == 'services')?.val.ru }}</a>
+              <nuxt-link to="#services" class="nav__link">{{
+                translations.find((item) => item.key == 'services')?.val[
+                  getLang
+                ] ?? translations.find((item) => item.key == 'services')?.val.ru
+              }}</nuxt-link>
             </li>
             <li>
-              <a href="#recruiting" class="nav__link">{{translations.find(item => item.key == 'recruiting')?.val[getLang] ?? translations.find(item => item.key == 'recruiting')?.val.ru }}</a>
+              <nuxt-link to="#recruiting" class="nav__link">{{
+                translations.find((item) => item.key == 'recruiting')?.val[
+                  getLang
+                ] ??
+                translations.find((item) => item.key == 'recruiting')?.val.ru
+              }}</nuxt-link>
             </li>
             <li>
-              <a href="#contacts" class="nav__link">{{translations.find(item => item.key == 'contact')?.val[getLang] ?? translations.find(item => item.key == 'contact')?.val.ru }}</a>
+              <nuxt-link to="#contacts" class="nav__link">{{
+                translations.find((item) => item.key == 'contact')?.val[
+                  getLang
+                ] ?? translations.find((item) => item.key == 'contact')?.val.ru
+              }}</nuxt-link>
             </li>
           </ul>
         </div>
       </div>
       <div class="nav__right">
         <div class="nav__lang">
-          <p class="current__lang">{{getLang}} <i class="bx bx-chevron-down"></i></p>
+          <p class="current__lang">
+            {{ getLang }} <i class="bx bx-chevron-down"></i>
+          </p>
           <div class="lang__drop">
             <p @click="changeLang('en')" class="next__lang">en</p>
             <p @click="changeLang('ru')" class="next__lang">ru</p>
           </div>
         </div>
         <button class="nav__btn" onclick="location.href='#contacts'">
-          <p>{{translations.find(item => item.key == 'button')?.val[getLang] ?? translations.find(item => item.key == 'button')?.val.ru }}</p>
+          <p>
+            {{
+              translations.find((item) => item.key == 'button')?.val[getLang] ??
+              translations.find((item) => item.key == 'button')?.val.ru
+            }}
+          </p>
         </button>
       </div>
     </div>
@@ -58,23 +82,23 @@ export default {
     window.addEventListener('scroll', scrollHeader)
   },
 
-  props:['translations'],
+  props: ['translations'],
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
-  
+
   methods: {
     changeLang(code) {
-      this.$store.dispatch("actionLangRu", code);
-        this.$router.replace({
-          params: {
-            lang: code,
-          },
-        });
-      localStorage.setItem("Lang", code);
+      this.$store.dispatch('actionLangRu', code)
+      this.$router.replace({
+        params: {
+          lang: code,
+        },
+      })
+      localStorage.setItem('Lang', code)
     },
   },
 }
@@ -150,6 +174,7 @@ export default {
   color: var(--black);
   position: relative;
   transition: 0.4s;
+  text-transform: capitalize;
 }
 .nav__link:hover,
 .current__lang:hover,
@@ -214,6 +239,7 @@ export default {
 .nav__btn:hover::after {
   width: 100%;
 }
+
 @media screen and (max-width: 1024px) {
   .nav__wrap {
     display: none;

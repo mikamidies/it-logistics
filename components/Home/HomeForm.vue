@@ -5,11 +5,25 @@
         <div class="row">
           <div class="col-lg-5 col-xs-12">
             <h4 class="form__title">
-              {{translations.find(item => item.key == 'form-title')?.val[getLang] ?? translations.find(item => item.key == 'form-title')?.val.ru }}
-               <span class="blue">{{translations.find(item => item.key == 'form-blue')?.val[getLang] ?? translations.find(item => item.key == 'form-blue')?.val.ru }}</span>
+              {{
+                translations.find((item) => item.key == 'form-title')?.val[
+                  getLang
+                ] ??
+                translations.find((item) => item.key == 'form-title')?.val.ru
+              }}
+              <span class="blue">{{
+                translations.find((item) => item.key == 'form-blue')?.val[
+                  getLang
+                ] ??
+                translations.find((item) => item.key == 'form-blue')?.val.ru
+              }}</span>
             </h4>
             <p class="form__txt">
-              {{translations.find(item => item.key == 'form-sub')?.val[getLang] ?? translations.find(item => item.key == 'form-sub')?.val.ru }}
+              {{
+                translations.find((item) => item.key == 'form-sub')?.val[
+                  getLang
+                ] ?? translations.find((item) => item.key == 'form-sub')?.val.ru
+              }}
             </p>
           </div>
           <div class="col-lg-7 col-xs-12">
@@ -19,32 +33,66 @@
                   <input
                     v-model="name"
                     type="text"
-                    :placeholder="translations.find(item => item.key == 'form-name')?.val[getLang] ?? translations.find(item => item.key == 'form-name')?.val.ru"
+                    :placeholder="
+                      translations.find((item) => item.key == 'form-name')?.val[
+                        getLang
+                      ] ??
+                      translations.find((item) => item.key == 'form-name')?.val
+                        .ru
+                    "
                     class="form__input"
                     required
                   />
                   <textarea
                     v-model="message"
                     class="form__textarea"
-                    :placeholder="translations.find(item => item.key == 'form-comment')?.val[getLang] ?? translations.find(item => item.key == 'form-comment')?.val.ru"
+                    :placeholder="
+                      translations.find((item) => item.key == 'form-comment')
+                        ?.val[getLang] ??
+                      translations.find((item) => item.key == 'form-comment')
+                        ?.val.ru
+                    "
                   ></textarea>
                 </div>
                 <div class="form__rower">
                   <input
                     v-model="company"
                     type="text"
-                    :placeholder="translations.find(item => item.key == 'form-company')?.val[getLang] ?? translations.find(item => item.key == 'form-company')?.val.ru"
+                    :placeholder="
+                      translations.find((item) => item.key == 'form-company')
+                        ?.val[getLang] ??
+                      translations.find((item) => item.key == 'form-company')
+                        ?.val.ru
+                    "
                     class="form__input"
                   />
                   <input
                     v-model="phone_number"
                     type="number"
-                    :placeholder="translations.find(item => item.key == 'form-number')?.val[getLang] ?? translations.find(item => item.key == 'form-number')?.val.ru"
+                    :placeholder="
+                      translations.find((item) => item.key == 'form-number')
+                        ?.val[getLang] ??
+                      translations.find((item) => item.key == 'form-number')
+                        ?.val.ru
+                    "
                     class="form__input"
                     required
                   />
                   <button type="submit" class="banner__btn">
-                    <p>{{translations.find(item => item.key == 'join')?.val[getLang] ?? translations.find(item => item.key == 'join')?.val.ru }}</p>
+                    <div v-if="sending" class="sending">
+                      <div class="spinner lds-dual-ring"></div>
+                    </div>
+                    <div v-else>
+                      <p>
+                        {{
+                          translations.find((item) => item.key == 'join')?.val[
+                            getLang
+                          ] ??
+                          translations.find((item) => item.key == 'join')?.val
+                            .ru
+                        }}
+                      </p>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -69,6 +117,7 @@ export default {
       phone_number: '',
       message: '',
       page: 'https://plaza.choopon.uz',
+      sending: false,
     }
   },
 
@@ -76,12 +125,14 @@ export default {
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
 
   methods: {
     async onSubmit() {
+      this.sending = true
+
       const formData = {
         name: this.name,
         company: this.company,
@@ -102,12 +153,14 @@ export default {
       this.company = ''
       this.phone_number = ''
       this.message = ''
+
+      this.sending = false
     },
   },
 }
 </script>
 
-<style>
+<style scoped>
 .form__wrapper {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -168,11 +221,12 @@ export default {
   color: white;
   background: var(--blue);
   border-radius: 12px;
-  padding: 17px;
+  /* padding: 17px; */
   position: relative;
   overflow: hidden;
   border: 2px solid var(--blue);
   text-align: center;
+  height: 60px;
 }
 .banner__btn::after {
   content: '';
@@ -202,6 +256,27 @@ input::-webkit-inner-spin-button {
 }
 input[type='number'] {
   -moz-appearance: textfield;
+}
+.sending {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner {
+  width: 30px;
+  height: 30px;
+}
+.spinner::after {
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 @media screen and (max-width: 1024px) {
   .form__wrapper {

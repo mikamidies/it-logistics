@@ -1,9 +1,16 @@
 <template>
   <div>
-    <DesktopNavbar :translations="translations"/>
-    <MobileHeader />
-    <nuxt />
-    <DesktopFooter :translations="translations"/>
+    <transition name="fade" v-if="loading">
+      <div class="loading">
+        <div class="spinner lds-dual-ring"></div>
+      </div>
+    </transition>
+    <div v-else>
+      <DesktopNavbar :translations="translations" />
+      <MobileHeader />
+      <nuxt />
+      <DesktopFooter :translations="translations" />
+    </div>
   </div>
 </template>
 
@@ -25,18 +32,34 @@ export default {
 
   data() {
     return {
+      loading: true,
       translations: [],
     }
   },
 
-  async mounted(){
-    const translations = await translationsApi.getTranslations(this.$axios);
+  async mounted() {
+    this.loading = true
+
+    const translations = await translationsApi.getTranslations(this.$axios)
 
     this.translations = await translations.data
 
-    console.log(this.translations);
-  }
+    this.loading = false
+  },
 }
 </script>
 
-<style></style>
+<style>
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

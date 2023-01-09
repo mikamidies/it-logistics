@@ -2,18 +2,27 @@
   <div data-aos="fade-up">
     <div class="container">
       <div class="auth__wrap">
-        <div class="row">
-          <div class="col-lg-2 col-xs-12">
-            <img src="@/assets/img/conte.jpg" alt="" class="auth__img" />
-          </div>
-          <div class="col-lg-10 col-xs-12">
-            <h4 class="auth__name">{{translations.find(item => item.key == 'owner-name')?.val[getLang] ?? translations.find(item => item.key == 'owner-name')?.val.ru }}</h4>
-            <p class="auth__status">{{translations.find(item => item.key == 'owner-status')?.val[getLang] ?? translations.find(item => item.key == 'owner-status')?.val.ru }}</p>
-            <p class="auth__word">
-              {{translations.find(item => item.key == 'owner-txt')?.val[getLang] ?? translations.find(item => item.key == 'owner-txt')?.val.ru }}
-            </p>
-          </div>
-        </div>
+        <h4 class="auth__name">
+          {{
+            translations.find((item) => item.key == 'owner-name')?.val[
+              getLang
+            ] ?? translations.find((item) => item.key == 'owner-name')?.val.ru
+          }}
+        </h4>
+        <p class="auth__status">
+          {{
+            translations.find((item) => item.key == 'owner-status')?.val[
+              getLang
+            ] ?? translations.find((item) => item.key == 'owner-status')?.val.ru
+          }}
+        </p>
+        <p class="auth__word">
+          {{
+            translations.find((item) => item.key == 'owner-txt')?.val[
+              getLang
+            ] ?? translations.find((item) => item.key == 'owner-txt')?.val.ru
+          }}
+        </p>
       </div>
     </div>
   </div>
@@ -27,7 +36,7 @@ export default {
 
   computed: {
     getLang() {
-      return this.$store.getters.language;
+      return this.$store.getters.language
     },
   },
 }
