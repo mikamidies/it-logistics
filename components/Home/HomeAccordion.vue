@@ -4,14 +4,15 @@
       <div class="acc__wrapper">
         <Accordion>
           <h4 class="acc__title">
-            What we actually can do for your <span class="blue">business</span>
+            {{translations.find(item => item.key == 'faq-title')?.val[getLang] ?? translations.find(item => item.key == 'faq-title')?.val.ru }} 
+            <span class="blue">{{translations.find(item => item.key == 'faq-blue')?.val[getLang] ?? translations.find(item => item.key == 'faq-blue')?.val.ru }}</span>
           </h4>
           <AccordionItem v-for="item in faq" :key="item.id">
             <template slot="accordion-trigger">
               <div class="acc__wrap">
                 <div class="top">
                   <h3 class="top__title">
-                    {{ item.question.en }}
+                    {{ item.question[getLang] ?? item.question.en }} 
                   </h3>
                 </div>
                 <div>
@@ -46,7 +47,7 @@
             </template>
             <template slot="accordion-content">
               <div class="content__wrap">
-                <div v-html="item.answer.en"></div>
+                <div v-html="item.answer[getLang] ?? item.answer.en"></div>
               </div>
             </template>
           </AccordionItem>
@@ -69,10 +70,18 @@ export default {
     AccordionItem,
   },
 
-  props: {
-    faq: {
-      type: Array,
-      required: true,
+  // props: {
+  //   faq: {
+  //     type: Array,
+  //     required: true,
+  //   },
+  // },
+
+  props: ['translations', 'faq'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
     },
   },
 }

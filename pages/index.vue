@@ -1,15 +1,17 @@
 <template>
   <div>
-    <HomeHome />
-    <HomeAccordion :faq="faq" />
-    <HomeBanner />
-    <HomeAuthor />
-    <HomeMap :about="about" />
-    <HomeForm />
+    <HomeHome :translations='translations'/>
+    <HomeAccordion :faq="faq" :translations='translations'/>
+    <HomeBanner :translations='translations'/>
+    <HomeAuthor :translations='translations' />
+    <HomeMap :about="about" :translations='translations'/>
+    <HomeForm :translations='translations'/>
   </div>
 </template>
 
 <script>
+import translationsApi from '@/api/translations.js'
+
 import HomeHome from '~/components/Home/HomeHome.vue'
 import HomeAccordion from '@/components/Home/HomeAccordion.vue'
 import HomeBanner from '~/components/Home/HomeBanner.vue'
@@ -39,7 +41,14 @@ export default {
     return {
       faq,
       about,
+      translations: [],
     }
+  },
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
   },
 
   async mounted(){
@@ -48,9 +57,14 @@ export default {
           params: {
             lang: 'en',
           },
-        });
+      });
     }
     this.$store.dispatch("actionLangRu", this.$route.params.lang);
-  }
+
+    const translations = await translationsApi.getTranslations(this.$axios);
+
+    this.translations = await translations.data
+  },
+
 }
 </script>

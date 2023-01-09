@@ -4,21 +4,20 @@
       <div class="banner__wrap">
         <div class="banner__lefr">
           <h4 class="banner__title">
-            <span class="blue">More</span> than just a career
+            <span class="blue">{{translations.find(item => item.key == 'career-blue')?.val[getLang] ?? translations.find(item => item.key == 'career-blue')?.val.ru }}</span>
+            {{translations.find(item => item.key == 'career-title')?.val[getLang] ?? translations.find(item => item.key == 'career-title')?.val.ru }}
           </h4>
           <p class="banner__txt">
-            We believe our business would not have been as half succesful with
-            our great employees! Thats why our employees are like family members
-            to us, many have grown to be top executives! 
+            {{translations.find(item => item.key == 'career-sub')?.val[getLang] ?? translations.find(item => item.key == 'career-sub')?.val.ru }} 
           </p>
           <div class="banner__white">
             <p class="white__num">250+</p>
-            <p class="white__txt">Employees working in our company</p>
+            <p class="white__txt">{{translations.find(item => item.key == 'career-white')?.val[getLang] ?? translations.find(item => item.key == 'career-white')?.val.ru }}</p>
           </div>
         </div>
         <div class="banner__right">
           <button onclick="location.href='#contacts'" class="banner__btn long">
-            <p>Join us</p>
+            <p>{{translations.find(item => item.key == 'join')?.val[getLang] ?? translations.find(item => item.key == 'join')?.val.ru }}</p>
           </button>
         </div>
       </div>
@@ -29,6 +28,14 @@
 <script>
 export default {
   name: 'HomeBanner',
+
+  props: ['translations'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
+  },
 }
 </script>
 

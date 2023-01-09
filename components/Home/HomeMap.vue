@@ -9,27 +9,27 @@
         </div>
         <div class="col-lg-7 col-xs-12">
           <div class="map__content">
-            <p class="map__sup">Location</p>
+            <p class="map__sup"> {{translations.find(item => item.key == 'location')?.val[getLang] ?? translations.find(item => item.key == 'location')?.val.ru }}</p>
             <h4 class="map__title">
-              We are located in the <br />
-              <span class="blue"> IT park office </span>
+              {{translations.find(item => item.key == 'location-title')?.val[getLang] ?? translations.find(item => item.key == 'location-title')?.val.ru }} <br />
+              <span class="blue"> {{translations.find(item => item.key == 'location-blue')?.val[getLang] ?? translations.find(item => item.key == 'location-blue')?.val.ru }} </span>
             </h4>
             <div class="map__items">
               <div class="map__item">
-                <p class="item__sup">Contacts:</p>
+                <p class="item__sup">{{translations.find(item => item.key == 'phone')?.val[getLang] ?? translations.find(item => item.key == 'phone')?.val.ru }}</p>
                 <a :href="`tel:${about.phone_number}`" class="item__txt">{{
                   about.phone_number
                 }}</a>
               </div>
               <div class="map__item">
-                <p class="item__sup">Email:</p>
+                <p class="item__sup">{{translations.find(item => item.key == 'email')?.val[getLang] ?? translations.find(item => item.key == 'email')?.val.ru }}</p>
                 <a :href="`mailto:${about.email}`" class="item__txt">{{
                   about.email
                 }}</a>
               </div>
               <div class="map__item">
-                <p class="item__sup">Address:</p>
-                <a href="#" class="item__txt">{{ about.address.en }}</a>
+                <p class="item__sup">{{translations.find(item => item.key == 'address')?.val[getLang] ?? translations.find(item => item.key == 'address')?.val.ru }}</p>
+                <a href="#" class="item__txt">{{ about.address[getLang] ?? about.address.en }}</a>
               </div>
             </div>
           </div>
@@ -44,10 +44,11 @@
 export default {
   name: 'HomeMap',
 
-  props: {
-    about: {
-      type: Object,
-      required: true,
+  props: ['translations', 'about'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
     },
   },
 }

@@ -10,9 +10,8 @@ export default {
         } else {
           res = await $nuxt.$axios.get('/translations')
         }
-        console.log(res)
 
-        return res.data.data
+        return res.data
       } catch (e) {
         console.log(e)
       }

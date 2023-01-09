@@ -5,11 +5,11 @@
         <div class="row">
           <div class="col-lg-5 col-xs-12">
             <h4 class="form__title">
-              Have any questions? <span class="blue">Contact us!</span>
+              {{translations.find(item => item.key == 'form-title')?.val[getLang] ?? translations.find(item => item.key == 'form-title')?.val.ru }}
+               <span class="blue">{{translations.find(item => item.key == 'form-blue')?.val[getLang] ?? translations.find(item => item.key == 'form-blue')?.val.ru }}</span>
             </h4>
             <p class="form__txt">
-              If you have any questions about format or what you need to choose,
-              leave your number - We will answer all your questions.
+              {{translations.find(item => item.key == 'form-sub')?.val[getLang] ?? translations.find(item => item.key == 'form-sub')?.val.ru }}
             </p>
           </div>
           <div class="col-lg-7 col-xs-12">
@@ -19,32 +19,32 @@
                   <input
                     v-model="name"
                     type="text"
-                    placeholder="Your name"
+                    :placeholder="translations.find(item => item.key == 'form-name')?.val[getLang] ?? translations.find(item => item.key == 'form-name')?.val.ru"
                     class="form__input"
                     required
                   />
                   <textarea
                     v-model="message"
                     class="form__textarea"
-                    placeholder="Comment"
+                    :placeholder="translations.find(item => item.key == 'form-comment')?.val[getLang] ?? translations.find(item => item.key == 'form-comment')?.val.ru"
                   ></textarea>
                 </div>
                 <div class="form__rower">
                   <input
                     v-model="company"
                     type="text"
-                    placeholder="Company name"
+                    :placeholder="translations.find(item => item.key == 'form-company')?.val[getLang] ?? translations.find(item => item.key == 'form-company')?.val.ru"
                     class="form__input"
                   />
                   <input
                     v-model="phone_number"
                     type="number"
-                    placeholder="Phone number"
+                    :placeholder="translations.find(item => item.key == 'form-number')?.val[getLang] ?? translations.find(item => item.key == 'form-number')?.val.ru"
                     class="form__input"
                     required
                   />
                   <button type="submit" class="banner__btn">
-                    <p>Join us</p>
+                    <p>{{translations.find(item => item.key == 'join')?.val[getLang] ?? translations.find(item => item.key == 'join')?.val.ru }}</p>
                   </button>
                 </div>
               </div>
@@ -70,6 +70,14 @@ export default {
       message: '',
       page: 'https://plaza.choopon.uz',
     }
+  },
+
+  props: ['translations'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
   },
 
   methods: {

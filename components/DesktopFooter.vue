@@ -3,11 +3,11 @@
     <div class="container">
       <div class="footer__wrap">
         <div class="left">
-          <p>Copyright © 2022 IT LOGISTIC GLOBAL.</p>
-          <p>All rights reserved.</p>
+          <p>{{translations.find(item => item.key == 'footer-txt')?.val[getLang] ?? translations.find(item => item.key == 'footer-txt')?.val.ru }}</p>
+          <p>{{translations.find(item => item.key == 'footer-right')?.val[getLang] ?? translations.find(item => item.key == 'footer-right')?.val.ru }}</p>
         </div>
         <div class="footer__right">
-          <p class="author">Developed by:</p>
+          <p class="author">{{translations.find(item => item.key == 'developed-by')?.val[getLang] ?? translations.find(item => item.key == 'developed-by')?.val.ru }}</p>
           <a href="#">
             <img src="@/assets/img/logo/ndc.svg" alt="" />
           </a>
@@ -20,6 +20,14 @@
 <script>
 export default {
   name: 'DesktopFooter',
+
+  props:['translations'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
+  },
 }
 </script>
 

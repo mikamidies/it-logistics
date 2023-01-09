@@ -10,16 +10,16 @@
         <div class="nav__links">
           <ul>
             <li>
-              <a href="#about" class="nav__link">About us</a>
+              <a href="#about" class="nav__link">{{translations.find(item => item.key == 'about')?.val[getLang] ?? translations.find(item => item.key == 'about')?.val.ru }}</a>
             </li>
             <li>
-              <a href="#services" class="nav__link">Services</a>
+              <a href="#services" class="nav__link">{{translations.find(item => item.key == 'services')?.val[getLang] ?? translations.find(item => item.key == 'services')?.val.ru }}</a>
             </li>
             <li>
-              <a href="#recruiting" class="nav__link">Recruiting</a>
+              <a href="#recruiting" class="nav__link">{{translations.find(item => item.key == 'recruiting')?.val[getLang] ?? translations.find(item => item.key == 'recruiting')?.val.ru }}</a>
             </li>
             <li>
-              <a href="#contacts" class="nav__link">Contacts</a>
+              <a href="#contacts" class="nav__link">{{translations.find(item => item.key == 'contact')?.val[getLang] ?? translations.find(item => item.key == 'contact')?.val.ru }}</a>
             </li>
           </ul>
         </div>
@@ -28,12 +28,12 @@
         <div class="nav__lang">
           <p class="current__lang">{{getLang}} <i class="bx bx-chevron-down"></i></p>
           <div class="lang__drop">
-            <p @click="changeLang('ru')" class="next__lang">Ru</p>
-            <p @click="changeLang('uz')" class="next__lang">Uz</p>
+            <p @click="changeLang('en')" class="next__lang">en</p>
+            <p @click="changeLang('ru')" class="next__lang">ru</p>
           </div>
         </div>
         <button class="nav__btn" onclick="location.href='#contacts'">
-          <p>Contact with us</p>
+          <p>{{translations.find(item => item.key == 'button')?.val[getLang] ?? translations.find(item => item.key == 'button')?.val.ru }}</p>
         </button>
       </div>
     </div>
@@ -57,6 +57,8 @@ export default {
     }
     window.addEventListener('scroll', scrollHeader)
   },
+
+  props:['translations'],
 
   computed: {
     getLang() {

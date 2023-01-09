@@ -7,11 +7,10 @@
             <img src="@/assets/img/conte.jpg" alt="" class="auth__img" />
           </div>
           <div class="col-lg-10 col-xs-12">
-            <h4 class="auth__name">Saipov Jamshid Akbarovich</h4>
-            <p class="auth__status">Founder & CEO of IT LOGISTIC – GLOBAL</p>
+            <h4 class="auth__name">{{translations.find(item => item.key == 'owner-name')?.val[getLang] ?? translations.find(item => item.key == 'owner-name')?.val.ru }}</h4>
+            <p class="auth__status">{{translations.find(item => item.key == 'owner-status')?.val[getLang] ?? translations.find(item => item.key == 'owner-status')?.val.ru }}</p>
             <p class="auth__word">
-              “We invest a lot in technology, constantly improve our process and
-              help our client more to be more efficient”
+              {{translations.find(item => item.key == 'owner-txt')?.val[getLang] ?? translations.find(item => item.key == 'owner-txt')?.val.ru }}
             </p>
           </div>
         </div>
@@ -23,6 +22,14 @@
 <script>
 export default {
   name: 'HomeAuthor',
+
+  props: ['translations'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language;
+    },
+  },
 }
 </script>
 

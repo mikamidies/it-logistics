@@ -1,9 +1,9 @@
 <template>
   <div>
-    <DesktopNavbar />
+    <DesktopNavbar :translations="translations"/>
     <MobileHeader />
     <nuxt />
-    <DesktopFooter />
+    <DesktopFooter :translations="translations"/>
   </div>
 </template>
 
@@ -23,15 +23,17 @@ export default {
     MobileHeader,
   },
 
-  async asyncData({ $axios }) {
-    const translations = await translationsApi.getTranslations($axios);
-
+  data() {
     return {
-      translations,
+      translations: [],
     }
   },
 
-  mounted(){
+  async mounted(){
+    const translations = await translationsApi.getTranslations(this.$axios);
+
+    this.translations = await translations.data
+
     console.log(this.translations);
   }
 }
