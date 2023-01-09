@@ -42,18 +42,9 @@
 
 <script>
 // eslint-disable
-import faqApi from '@/api/faq.js'
 
 export default {
   name: 'DesktopNavbar',
-
-  async asyncData({ $axios }) {
-    const translations = await faqApi.getFaq($axios);
-
-    return {
-      translations,
-    }
-  },
 
   mounted() {
     function scrollHeader() {
@@ -65,8 +56,6 @@ export default {
       }
     }
     window.addEventListener('scroll', scrollHeader)
-
-    console.log(this.faq)
   },
 
   computed: {
