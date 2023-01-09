@@ -7,7 +7,7 @@
             <span class="blue">More</span> than just a career
           </h4>
           <p class="banner__txt">
-            We believe our business would not have been as half successful with
+            We believe our business would not have been as half succesful with
             our great employees! Thats why our employees are like family members
             to us, many have grown to be top executives!
           </p>
