@@ -8,12 +8,15 @@
           </a>
         </div>
         <div class="mob__right">
-          <!-- <div class="nav__lang">
-            <p class="current__lang">En <i class="bx bx-chevron-down"></i></p>
+          <div class="nav__lang">
+            <p class="current__lang">
+              {{ getLang }} <i class="bx bx-chevron-down"></i>
+            </p>
             <div class="lang__drop">
-              <a href="#" class="next__lang">Eng</a>
+              <p @click="changeLang('en')" class="next__lang">en</p>
+              <p @click="changeLang('ru')" class="next__lang">ru</p>
             </div>
-          </div> -->
+          </div>
           <div class="mob__burger">
             <button
               :class="{ 'toggle-x': isMenuOpen }"
@@ -29,21 +32,65 @@
       <div class="container">
         <ul>
           <li>
-            <a href="#about" class="mob__link">About us</a>
+            <a href="#about" class="mob__link">{{
+              translations.find((item) => item.key == 'about')?.val[getLang] ??
+              translations.find((item) => item.key == 'about')?.val.ru
+            }}</a>
           </li>
-          <li><a href="#services" class="mob__link">Services</a></li>
-          <li><a href="#recruiting" class="mob__link">Recruiting</a></li>
-          <li><a href="#contacts" class="mob__link">Contacts</a></li>
+          <li>
+            <a href="#services" class="mob__link">{{
+              translations.find((item) => item.key == 'services')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'services')?.val.ru
+            }}</a>
+          </li>
+          <li>
+            <a href="#recruiting" class="mob__link">{{
+              translations.find((item) => item.key == 'recruiting')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'recruiting')?.val.ru
+            }}</a>
+          </li>
+          <li>
+            <a href="#contacts" class="mob__link">{{
+              translations.find((item) => item.key == 'contact')?.val[
+                getLang
+              ] ?? translations.find((item) => item.key == 'contact')?.val.ru
+            }}</a>
+          </li>
         </ul>
 
         <div>
           <div class="footer__wrap">
             <div class="left">
-              <p>Copyright © 2022 IT LOGISTIC GLOBAL.</p>
-              <p>All rights reserved.</p>
+              <p>
+                {{
+                  translations.find((item) => item.key == 'footer-txt')?.val[
+                    getLang
+                  ] ??
+                  translations.find((item) => item.key == 'footer-txt')?.val.ru
+                }}
+              </p>
+              <p>
+                {{
+                  translations.find((item) => item.key == 'footer-right')?.val[
+                    getLang
+                  ] ??
+                  translations.find((item) => item.key == 'footer-right')?.val
+                    .ru
+                }}
+              </p>
             </div>
             <div class="footer__right">
-              <p class="author">Developed by:</p>
+              <p class="author">
+                {{
+                  translations.find((item) => item.key == 'developed-by')?.val[
+                    getLang
+                  ] ??
+                  translations.find((item) => item.key == 'developed-by')?.val
+                    .ru
+                }}
+              </p>
               <a href="#">
                 <img src="@/assets/img/logo/ndc.svg" alt="" />
               </a>
@@ -81,6 +128,26 @@ export default {
       }
     }
     window.addEventListener('scroll', scrollHeader)
+  },
+
+  props: ['translations'],
+
+  computed: {
+    getLang() {
+      return this.$store.getters.language
+    },
+  },
+
+  methods: {
+    changeLang(code) {
+      this.$store.dispatch('actionLangRu', code)
+      this.$router.replace({
+        params: {
+          lang: code,
+        },
+      })
+      localStorage.setItem('Lang', code)
+    },
   },
 }
 </script>

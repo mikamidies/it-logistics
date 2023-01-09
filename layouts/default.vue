@@ -7,7 +7,7 @@
     </transition>
     <div v-else>
       <DesktopNavbar :translations="translations" />
-      <MobileHeader />
+      <MobileHeader :translations="translations" />
       <nuxt />
       <DesktopFooter :translations="translations" />
     </div>
