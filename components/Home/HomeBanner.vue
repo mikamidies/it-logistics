@@ -2,7 +2,7 @@
   <div class="banner__wrapper" data-aos="fade-up">
     <div class="container">
       <div class="banner__wrap">
-        <div class="banner__lefr">
+        <div class="banner__left">
           <h4 class="banner__title">
             <span class="blue">{{translations.find(item => item.key == 'career-blue')?.val[getLang] ?? translations.find(item => item.key == 'career-blue')?.val.ru }}</span>
             {{translations.find(item => item.key == 'career-title')?.val[getLang] ?? translations.find(item => item.key == 'career-title')?.val.ru }}
@@ -51,6 +51,22 @@ export default {
   border-radius: 40px;
   padding: 60px 70px 72px 70px;
   display: flex;
+  position: relative;
+}
+.banner__wrap::after{
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40px;
+}
+.banner__left,
+.banner__right{
+  position: relative;
+  z-index: 99;
 }
 .banner__title {
   font-weight: 800;

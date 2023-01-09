@@ -20,7 +20,7 @@
             loop
             playsinline
             muted
-            src="@/assets/videos/home.mp4"
+            src="@/assets/videos/homme.mp4"
           ></video>
         </div>
         <div class="col-lg-6 col-xs-12 right">
