@@ -328,6 +328,7 @@ export default {
   visibility: visible;
   transform: translateY(0);
   pointer-events: initial;
+  z-index: 99999999999999;
 }
 .next__lang:last-child{
   border-bottom: none;
