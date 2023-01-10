@@ -9,10 +9,12 @@
         </div>
         <div class="mob__right">
           <div class="mob__lang nav__lang">
-            <p class="current__lang">
+            <p class="current__lang"
+              @click="isLangOpen = !isLangOpen"
+            >
               {{ getLang }} <i class="bx bx-chevron-down"></i>
             </p>
-            <div class="lang__drop">
+            <div class="lang__drop" :class="{ 'show-lang': isLangOpen }">
               <p @click="changeLang('en')" class="next__lang">English</p>
               <p @click="changeLang('ru')" class="next__lang">Russian</p>
             </div>
@@ -109,12 +111,14 @@ export default {
   data() {
     return {
       isMenuOpen: false,
+      isLangOpen: false,
     }
   },
 
   watch: {
     $route() {
-      this.isMenuOpen = false
+      this.isMenuOpen = false;
+      this.isLangOpen = false;
     },
   },
 
@@ -188,12 +192,7 @@ export default {
   position: relative;
   cursor: pointer;
 }
-.nav__lang:hover .lang__drop {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: initial;
-}
+
 .mob__burger {
   display: flex;
   align-items: center;
@@ -305,7 +304,7 @@ export default {
   transition: 0.4s;
   z-index: 999999;
 }
-.mob__lang .nav__lang:focus .lang__drop {
+.lang__drop.show-lang{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
