@@ -17,8 +17,11 @@
             <div class="map__items">
               <div class="map__item">
                 <p class="item__sup">{{translations.find(item => item.key == 'phone')?.val[getLang] ?? translations.find(item => item.key == 'phone')?.val.ru }}</p>
+                <a :href="`tel:${about.phone_number}`" ref="phone-1" class="item__txt">{{
+                  phoneOne
+                }}</a>
                 <a :href="`tel:${about.phone_number}`" class="item__txt">{{
-                  about.phone_number
+                  phoneTwo
                 }}</a>
               </div>
               <div class="map__item">
@@ -46,11 +49,25 @@ export default {
 
   props: ['translations', 'about'],
 
+  data(){
+    return{
+      phoneOne: '',
+      phoneTwo: ''
+    }
+  },
+
   computed: {
     getLang() {
       return this.$store.getters.language;
     },
   },
+
+  mounted() {
+    // const phones = this.about.phone_number
+
+    // const phoneOne = phones.slice(0, 13)S
+    // const phoneTwo = phones.slice(13, 28)
+  }
 }
 </script>
 

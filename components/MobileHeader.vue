@@ -13,8 +13,8 @@
               {{ getLang }} <i class="bx bx-chevron-down"></i>
             </p>
             <div class="lang__drop">
-              <p @click="changeLang('en')" class="next__lang"></p>
-              <p @click="changeLang('ru')" class="next__lang"></p>
+              <p @click="changeLang('en')" class="next__lang">English</p>
+              <p @click="changeLang('ru')" class="next__lang">Russian</p>
             </div>
           </div>
           <div class="mob__burger">
@@ -296,6 +296,27 @@ export default {
 .next__lang,
 .current__lang {
   text-transform: capitalize;
+}
+.lang__drop {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 8px;
+  transition: 0.4s;
+}
+.nav__lang:hover .lang__drop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: initial;
 }
 @media screen and (max-width: 1024px) {
   .mob__wrap {

@@ -1,6 +1,11 @@
 <template>
   <div class="nav__wrap" id="navbar">
-    <div class="container">
+    <transition name="fade" v-if="loading">
+      <div class="loading">
+        <div class="spinner lds-dual-ring"></div>
+      </div>
+    </transition>
+    <div v-else class="container">
       <div class="nav__left">
         <div class="nav__img">
           <a href="#">
@@ -69,6 +74,12 @@
 
 export default {
   name: 'DesktopNavbar',
+
+  data(){
+    return{
+      loading: false
+    }
+  },
 
   mounted() {
     function scrollHeader() {
