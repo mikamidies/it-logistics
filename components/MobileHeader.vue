@@ -8,7 +8,7 @@
           </a>
         </div>
         <div class="mob__right">
-          <div class="nav__lang">
+          <div class="mob__lang nav__lang">
             <p class="current__lang">
               {{ getLang }} <i class="bx bx-chevron-down"></i>
             </p>
@@ -236,7 +236,7 @@ export default {
   display: none;
 }
 .mob__body {
-  background: #f5f5f7;
+  background:#D5D5D5;
   z-index: 999;
   position: relative;
   transition: 0.2s;
@@ -246,6 +246,7 @@ export default {
   transform: translateX(100%);
   pointer-events: none;
   display: none;
+  height: 100%;
 }
 .mob__body.show-nav {
   opacity: 1;
@@ -253,9 +254,10 @@ export default {
   transform: translateX(0%);
   pointer-events: initial;
   display: block;
+  height: 90vh;
 }
 .mob__body .container {
-  min-height: 87vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -303,7 +305,7 @@ export default {
   transition: 0.4s;
   z-index: 999999;
 }
-.nav__lang:hover .lang__drop {
+.mob__lang .nav__lang:focus .lang__drop {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
