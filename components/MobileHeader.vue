@@ -273,22 +273,12 @@ export default {
 }
 .mob__link {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 24px;
   color: var(--black);
   position: relative;
 }
-.mob__link::after {
-  width: 6px;
-  height: 6px;
-  background: var(--blue);
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-}
+
 .mob__link:hover {
   color: var(--black);
   text-decoration: none;
@@ -311,6 +301,7 @@ export default {
   box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
   border-radius: 8px;
   transition: 0.4s;
+  z-index: 999999;
 }
 .nav__lang:hover .lang__drop {
   opacity: 1;
