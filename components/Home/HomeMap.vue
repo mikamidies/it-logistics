@@ -17,10 +17,10 @@
             <div class="map__items">
               <div class="map__item">
                 <p class="item__sup">{{translations.find(item => item.key == 'phone')?.val[getLang] ?? translations.find(item => item.key == 'phone')?.val.ru }}</p>
-                <a :href="`tel:${about.phone_number.split('')[0]}`" ref="phone-1" class="item__txt">{{
+                <a :href="`tel:${about.phone_number.split(' ')[0]}`" ref="phone-1" class="item__txt">{{
                   about.phone_number.split(" ")[0]
                 }}</a>
-                <a :href="`tel:${about.phone_number.split('')[1]}`" class="item__txt">{{
+                <a :href="`tel:${about.phone_number.split(' ')[1]}`" class="item__txt">{{
                   about.phone_number.split(" ")[1]
                 }}</a>
               </div>
@@ -63,7 +63,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.about);
+    console.log(this.about.phone_number.split("")[0]);
 
     // const phones = this.about.phone_number
 
