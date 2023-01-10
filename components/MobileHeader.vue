@@ -14,9 +14,13 @@
             >
               {{ getLang }} <i class="bx bx-chevron-down"></i>
             </p>
-            <div class="lang__drop" :class="{ 'show-lang': isLangOpen }">
-              <p @click="changeLang('en')" class="next__lang">English</p>
-              <p @click="changeLang('ru')" class="next__lang">Russian</p>
+            <div class="lang__modal" :class="{ 'show-lang': isLangOpen }">
+              <div class="lang__wrap" @click="isLangOpen = !isLangOpen">
+              </div>
+              <div class="lang__drop">
+                <p @click="changeLang('en')" class="next__lang">English</p>
+                <p @click="changeLang('ru')" class="next__lang">Russian</p>
+              </div>
             </div>
           </div>
           <div class="mob__burger">
@@ -289,13 +293,9 @@ export default {
   text-transform: capitalize;
 }
 .lang__drop {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-100%);
-  pointer-events: none;
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 70px;
+  right: 30px;
   background: white;
   -webkit-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
@@ -304,11 +304,33 @@ export default {
   transition: 0.4s;
   z-index: 999999;
 }
-.lang__drop.show-lang{
+.lang__modal{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.lang__wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.lang__modal.show-lang{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: initial;
+}
+.next__lang:last-child{
+  border-bottom: none;
 }
 @media screen and (max-width: 1024px) {
   .mob__wrap {
