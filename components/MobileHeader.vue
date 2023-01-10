@@ -255,7 +255,7 @@ export default {
   display: block;
 }
 .mob__body .container {
-  min-height: 90vh;
+  min-height: 87vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
