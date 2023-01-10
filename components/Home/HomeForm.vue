@@ -205,6 +205,9 @@ export default {
   border-radius: 12px;
   width: 100%;
 }
+.form__textarea{
+  min-height: 139px;
+}
 .form__input::placeholder,
 .form__textarea::placeholder {
   color: #777c84;
