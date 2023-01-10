@@ -13,8 +13,8 @@
               {{ getLang }} <i class="bx bx-chevron-down"></i>
             </p>
             <div class="lang__drop">
-              <p @click="changeLang('en')" class="next__lang">en</p>
-              <p @click="changeLang('ru')" class="next__lang">ru</p>
+              <p @click="changeLang('en')" class="next__lang"></p>
+              <p @click="changeLang('ru')" class="next__lang"></p>
             </div>
           </div>
           <div class="mob__burger">
@@ -128,6 +128,8 @@ export default {
       }
     }
     window.addEventListener('scroll', scrollHeader)
+
+    console.log(this.$store.getters);
   },
 
   props: ['translations'],
@@ -185,22 +187,6 @@ export default {
 .nav__lang {
   position: relative;
   cursor: pointer;
-}
-.lang__drop {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-100%);
-  pointer-events: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding: 12px;
-  background: white;
-  -webkit-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 8px;
-  transition: 0.4s;
 }
 .nav__lang:hover .lang__drop {
   opacity: 1;

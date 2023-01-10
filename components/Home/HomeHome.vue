@@ -242,8 +242,8 @@ video {
   video {
     position: static;
     height: 210px;
-    margin-left: -16px;
     margin-bottom: 20px;
+    border-radius: 16px;
   }
   .left {
     padding: 0;

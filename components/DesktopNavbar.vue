@@ -47,8 +47,8 @@
             {{ getLang }} <i class="bx bx-chevron-down"></i>
           </p>
           <div class="lang__drop">
-            <p @click="changeLang('en')" class="next__lang">en</p>
-            <p @click="changeLang('ru')" class="next__lang">ru</p>
+            <p @click="changeLang('en')" class="next__lang">English</p>
+            <p @click="changeLang('ru')" class="next__lang">Русский</p>
           </div>
         </div>
         <button class="nav__btn" onclick="location.href='#contacts'">
@@ -151,7 +151,6 @@ export default {
   position: absolute;
   top: 100%;
   left: 0;
-  padding: 12px;
   background: white;
   -webkit-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 0px 7px 0px rgba(34, 60, 80, 0.2);
@@ -168,8 +167,8 @@ export default {
 .nav__link,
 .current__lang,
 .next__lang {
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   line-height: 24px;
   color: var(--black);
   position: relative;

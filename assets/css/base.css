@@ -233,3 +233,20 @@ body {
 .fade-enter-to {
   opacity: 1;
 }
+
+.lang__drop{
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;  
+  z-index: 99;
+}
+.next__lang{
+  padding: 16px;
+  border-bottom: 1px solid #ebebeb;
+}
+.next__lang:first-child{
+  padding-bottom: 8px;
+}
+.next__lang:last-child{
+  padding-top: 8px;
+}
