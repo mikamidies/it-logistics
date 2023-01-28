@@ -4,6 +4,9 @@
       <img src="@/assets/img/logo/figure.svg" alt="" class="home__back" />
     </div>
     <div class="container">
+      <h4 class="evangelion">
+        Fly me to the moon
+      </h4>
       <h1 class="title">
         {{
           translations.find((item) => item.key == 'title')?.val[getLang] ??
@@ -107,6 +110,12 @@ export default {
 </script>
 
 <style scoped>
+.evangelion{
+  font-size: 100px;
+  text-align: center;
+  font-family: var(--decor-extra);
+  margin-bottom: 32px;
+}
 .wrap {
   padding: 180px 0 120px 0;
   overflow-x: hidden;
